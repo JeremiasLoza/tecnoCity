@@ -6,4 +6,6 @@
 
 - Eliminamos los archivos inecesarios.
 
-- Instalamos las dependecias a nuestro gusto, en este caso utilizo: [Material UI](https://mui.com/) y [SwiperJS](https://swiperjs.com/react) *(estas se iran actualizando a medida que avance el proyecto)*.
+- Instalamos las dependecias a nuestro gusto, en este caso utilizo: [React Bootstrap](https://react-bootstrap.github.io/) y [SwiperJS](https://swiperjs.com/react) *(estas se iran actualizando a medida que avance el proyecto)*.
+
+- Se añadio un Nav bar con: logo, categorias, busqueda y un carrito.
