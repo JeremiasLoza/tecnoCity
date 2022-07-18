@@ -8,4 +8,12 @@
 
 - Instalamos las dependecias a nuestro gusto, en este caso utilizo: [React Bootstrap](https://react-bootstrap.github.io/) y [SwiperJS](https://swiperjs.com/react) *(estas se iran actualizando a medida que avance el proyecto)*.
 
-- Se añadio un Nav bar con: logo, categorias, busqueda y un carrito.
+## Componentes
+
+- **NavBar:** Barra de navegacion con logo, categorias, busqueda y un carrito (Componente Cart).
+
+- **Banner:** Carrousel con imagenes.
+
+- **Item List Container:** Contenedor de Items.
+
+- **Item Product:** Card con los datos del producto.
