@@ -24,25 +24,29 @@ export default function App() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
+        <SwiperSlide>
+          <img
+            className="d-block w-100"
+            src="/assets/Banner/bannerjpg.jpg"
+            alt="First slide"
+          />
+        </SwiperSlide>
 
+        <SwiperSlide>
+          <img
+            className="d-block w-100"
+            src="/assets/Banner/bannerjpg.jpg"
+            alt="First slide"
+          />
+        </SwiperSlide>
 
-<SwiperSlide><img
-          className="d-block w-100"
-          src="/assets/Banner/bannerjpg.jpg"
-          alt="First slide"
-        /></SwiperSlide>
-
-<SwiperSlide><img
-          className="d-block w-100"
-          src="/assets/Banner/bannerjpg.jpg"
-          alt="First slide"
-        /></SwiperSlide>
-
-<SwiperSlide><img
-          className="d-block w-100"
-          src="/assets/Banner/bannerjpg.jpg"
-          alt="First slide"
-        /></SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="d-block w-100"
+            src="/assets/Banner/bannerjpg.jpg"
+            alt="First slide"
+          />
+        </SwiperSlide>
 
         {/* <SwiperSlide><img
           className="d-block w-100"
@@ -61,7 +65,6 @@ export default function App() {
           src="/assets/Banner/banner2.webp"
           alt="Third slide"
         /></SwiperSlide> */}
-
       </Swiper>
     </>
   );

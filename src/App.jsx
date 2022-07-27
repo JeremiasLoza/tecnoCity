@@ -1,7 +1,7 @@
-import './App.scss';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import NavBar from './Components/NavBar/NavBar';
-import Banner from './Components/Banner/Banner';
+import "./App.scss";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import NavBar from "./components/NavBar/NavBar";
+import Banner from "./components/Banner/Banner";
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
         <Banner />
       </section>
       <section>
-        <ItemListContainer title={'Descuentos'}/>
-        <ItemListContainer title={'Mas comprados'}/>
+        <ItemListContainer title={"Descuentos"} />
+        <ItemListContainer title={"Mas comprados"} />
       </section>
     </>
   );
