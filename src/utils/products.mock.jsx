@@ -11,7 +11,7 @@ const products = [
     photo: "mother.jpg",
     title: "ASUS PRIME X570-P",
     price: 43650,
-    stock: 5,
+    stock: 6,
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const products = [
     title: "GALAX GeForce RTX 3090 Ti",
     price: 349900,
     stock: 3,
-  },
+  }
 ];
 
 export default products;

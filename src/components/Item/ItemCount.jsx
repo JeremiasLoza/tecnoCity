@@ -13,7 +13,7 @@ const ItemCount = ({ stock }) => {
   };
 
   return (
-    <ButtonToolbar className="mb-3">
+    <ButtonToolbar className="mb-3 justify-content-center">
       <ButtonGroup>
         <Button
           onClick={() => editItem(-1)}

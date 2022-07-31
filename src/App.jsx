@@ -2,6 +2,7 @@ import "./App.scss";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
 import Banner from "./components/Banner/Banner";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       </section>
       <section>
         <ItemListContainer title={"Descuentos"} />
-        <ItemListContainer title={"Mas comprados"} />
+
+        <ItemDetailContainer />
       </section>
     </>
   );
