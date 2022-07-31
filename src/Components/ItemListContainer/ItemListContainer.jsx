@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/esm/Container";
 import products from "../../utils/products.mock";
-import ItemDetail from "../ItemDetail/ItemDetail";
+import ItemList from "../ItemList/ItemList";
 
-const ItemDetailContainer = () => {
+function ItemListContainer({ title }) {
   const [listProducts, setListProducts] = useState([]);
 
   const getProducts = new Promise((resolve, reject) => {
@@ -23,11 +25,15 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      {listProducts.map((product) => {
-        return <ItemDetail key={product.id} data={product} />;
-      })}
+      <h2 className="mt-3 mb-3 text-center">{title}</h2>
+
+      <Container>
+        <Row className="justify-content-around">
+          <ItemList dataProduct={listProducts} />
+        </Row>
+      </Container>
     </div>
   );
-};
+}
 
-export default ItemDetailContainer;
+export default ItemListContainer;
