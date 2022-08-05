@@ -2,14 +2,22 @@ import React from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import ItemCount from "../Item/ItemCount";
 import { Truck } from "react-bootstrap-icons";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 import "./ItemDetail.scss";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ data }) => {
   const { photo, title, price, stock } = data;
 
   return (
-    <Container className="bg-white rounded pt-5 pb-5 mt-3">
-      <Row>
+    <Container className="bg-white rounded mt-3">
+      <Breadcrumb className="pt-2">
+        <Breadcrumb.Item>
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>Producto</Breadcrumb.Item>
+      </Breadcrumb>
+      <Row className="pt-2 pb-5">
         <Col>
           <img
             className="mt-2 img-fluid"

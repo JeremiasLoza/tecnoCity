@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
-import products from "../../utils/products.mock";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
+import products from "../../utils/products.mock";
 
 const ItemDetailContainer = () => {
-  const [listProducts, setListProducts] = useState([]);
+  const [productData, setProductData] = useState({});
 
-  const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 2000);
-  });
+  const { id } = useParams();
 
-  useEffect(() => {
-    getProducts
-      .then((res) => {
-        setListProducts(products);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect( () => {
+    filterById();
+  }, [id]);
+
+  const filterById = () => {
+    products.some( (product) => {
+      if(product.id == id){
+        setProductData(product);
+      }
+    })
+  }
 
   return (
-    <div>
-      {listProducts.map((product) => {
-        return <ItemDetail key={product.id} data={product} />;
-      })}
-    </div>
+    <>
+      <ItemDetail data={productData} />;
+    </>
   );
 };
 

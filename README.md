@@ -6,7 +6,8 @@
 
 - Eliminamos los archivos inecesarios.
 
-- Instalamos las dependecias a nuestro gusto, en este caso utilizo: [React Bootstrap](https://react-bootstrap.github.io/) y [SwiperJS](https://swiperjs.com/react) *(estas se iran actualizando a medida que avance el proyecto)*.
+- Instalamos las dependecias a nuestro gusto, en este caso utilizo: [React Bootstrap](https://react-bootstrap.github.io/), [SwiperJS](https://swiperjs.com/react), [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
+[React Router Dom](https://www.npmjs.com/package/react-router-dom), [Sass](https://www.npmjs.com/package/sass). *(estas se iran actualizando a medida que avance el proyecto)*.
 
 ## Componentes
 
@@ -14,6 +15,20 @@
 
 - **Banner:** Carrousel con imagenes.
 
-- **Item List Container:** Contenedor de Items.
+- **Item:** Card que contiene la informacion del Item.
 
-- **Item Product:** Card con los datos del producto.
+- **Item Detail:** Componente que muestra la informacion detallada del Item.
+
+- **Item Detail Container:** Componente que deriba a la informacion detallada al item dependiendo su id.
+
+- **Item List:** Renderiza la lista de Items.
+
+- **Item List Container:** Contiene la lista de Items.
+
+## Pages
+
+- **Home.**
+
+## Utils
+
+- **Products mock.**

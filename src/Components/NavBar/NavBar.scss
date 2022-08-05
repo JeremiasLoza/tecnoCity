@@ -5,3 +5,13 @@
 .no-border{
     border: none !important;
 }
+
+a {
+    text-decoration:none !important;
+}
+
+.offcanvas-body{
+    a {
+        color: #6c757d;
+    }
+}
