@@ -21,29 +21,26 @@ function Item({ data }) {
           <Card.Title>{title}</Card.Title>
         </Card.Body>
 
-          <Card.Text
-            style={{ fontSize: "1.5rem" }}
-            className="mb-2 text-primary"
-          >
-            $ {price}
-          </Card.Text>
+        <Card.Text style={{ fontSize: "1.5rem" }} className="mb-2 text-primary">
+          $ {price}
+        </Card.Text>
 
-          <ItemCount stock={stock} />
+        {/* <ItemCount stock={stock} /> */}
 
-          <Button
+        {/* <Button
             disabled={stock ? false : true}
             variant="outline-primary"
             className="mb-2"
           >
             Agregar al carrito
-          </Button>
+          </Button> */}
 
-          <Card.Text
-            style={{ fontSize: "0.7rem" }}
-            className={`${!stock ? "text-danger" : "text-dark"}`}
-          >
-            Stock: {stock}
-          </Card.Text>
+        <Card.Text
+          style={{ fontSize: "0.7rem" }}
+          className={`${!stock ? "text-danger" : "text-dark"}`}
+        >
+          Stock: {stock}
+        </Card.Text>
       </Link>
     </Card>
   );

@@ -1,13 +1,15 @@
-import React from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import ItemCount from "../Item/ItemCount";
 import { Truck } from "react-bootstrap-icons";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import "./ItemDetail.scss";
 import { Link } from "react-router-dom";
+import "./ItemDetail.scss";
+import { useState } from "react";
 
 const ItemDetail = ({ data }) => {
   const { photo, title, price, stock } = data;
+
+  const [quantitySelected, setQuantitySelected] = useState(0);
 
   return (
     <Container className="bg-white rounded mt-3">
@@ -45,15 +47,15 @@ const ItemDetail = ({ data }) => {
 
           <hr width="75%" />
 
-          <ItemCount stock={stock} />
-
-          <Button
-            // disabled={stock ? false : true}
-            variant="outline-primary"
-            className="mb-2"
-          >
-            Agregar al carrito
-          </Button>
+          {quantitySelected > 0 ? (
+            <Link to="/cart">
+              <Button variant="outline-primary" className="mb-2">
+                Terminar compra
+              </Button>
+            </Link>
+          ) : (
+            <ItemCount quantitySelected={setQuantitySelected} stock={stock} />
+          )}
 
           <h6
             style={{ fontSize: "0.9rem" }}
