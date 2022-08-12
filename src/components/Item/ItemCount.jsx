@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import { CartContext } from "../../context/CartContext";
 
-const ItemCount = ({ quantitySelected, stock }) => {
+const ItemCount = ({ quantitySelected, stock, productData }) => {
   const [count, setCount] = useState(1);
+
+  const {addProductToCart} = useContext(CartContext);
 
   const editItem = (num) => {
     setCount(count + num);
@@ -14,6 +17,11 @@ const ItemCount = ({ quantitySelected, stock }) => {
 
   const onAdd = () => {
     quantitySelected(count);
+    addProductToCart(productData);
+  };
+
+  const addToCart = (e) => {
+    e.stopPropagation();
   };
 
   return (
@@ -45,8 +53,11 @@ const ItemCount = ({ quantitySelected, stock }) => {
       </ButtonToolbar>
 
       <Button
-        onClick={onAdd}
-        // disabled={stock ? false : true}
+        onClick={() => {
+          onAdd();
+          addToCart();
+        }}
+        disabled={stock ? false : true}
         variant="outline-primary"
         className="mb-2"
       >

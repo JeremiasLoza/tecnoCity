@@ -25,15 +25,15 @@ function Item({ data }) {
           $ {price}
         </Card.Text>
 
-        {/* <ItemCount stock={stock} /> */}
+        <ItemCount stock={stock} />
 
         {/* <Button
-            disabled={stock ? false : true}
-            variant="outline-primary"
-            className="mb-2"
-          >
-            Agregar al carrito
-          </Button> */}
+          disabled={stock ? false : true}
+          variant="outline-primary"
+          className="mb-2"
+        >
+          Agregar al carrito
+        </Button> */}
 
         <Card.Text
           style={{ fontSize: "0.7rem" }}

@@ -54,7 +54,7 @@ const ItemDetail = ({ data }) => {
               </Button>
             </Link>
           ) : (
-            <ItemCount quantitySelected={setQuantitySelected} stock={stock} />
+            <ItemCount quantitySelected={setQuantitySelected} stock={stock} productData={data} />
           )}
 
           <h6
