@@ -8,9 +8,7 @@ function ItemListContainer({ title }) {
   const [listProducts, setListProducts] = useState([]);
 
   const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
       resolve(products);
-    }, 2000);
   });
 
   useEffect(() => {

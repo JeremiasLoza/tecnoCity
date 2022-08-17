@@ -6,9 +6,11 @@ import Badge from "react-bootstrap/Badge";
 import "./CartWidget.scss";
 import { CartContext } from "../../context/CartContext";
 import Modal from "react-bootstrap/Modal";
+import Image from "react-bootstrap/Image";
+import CartComponent from "../Cart/Cart";
 
 const CartWidget = () => {
-  const { cartProducts } = useContext(CartContext);
+  const { cartProducts, totalProducts, clear, removeProductFromCart } = useContext(CartContext);
   const [lgShow, setLgShow] = useState(false);
 
   return (
@@ -19,7 +21,7 @@ const CartWidget = () => {
         variant="outline-primary"
       >
         <Cart />
-        <Badge bg="none">0</Badge>
+        <Badge bg="none">{cartProducts.length !== 0 ? totalProducts : ''}</Badge>
       </Button>
 
       <Modal
@@ -32,14 +34,14 @@ const CartWidget = () => {
           <Modal.Title id="example-modal-sizes-title-lg">Checkout</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {cartProducts.map((product) => {
+          {cartProducts.length !== 0 ? cartProducts.map((item, i) => {
             return (
               <>
-                <h2>{product.title}</h2>
-                <h4>$ {product.price}</h4>
+                <CartComponent key={i} product={item} />
               </>
             );
-          })}
+          }) : <h4>No tienes productos en el carrito!</h4>} 
+          {cartProducts.length !== 0 && <Button onClick={() => clear()}>Vaciar carrito</Button> }
         </Modal.Body>
       </Modal>
     </>

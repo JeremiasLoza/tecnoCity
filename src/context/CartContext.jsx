@@ -4,12 +4,17 @@ const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
-  console.log(cartProducts);
+
+  const [totalProducts, setTotalProducts] = useState(0);
 
   const addProductToCart = (product) => {
     if (!isInCart(product)) {
       setCartProducts((cartProducts) => [...cartProducts, product]);
     }
+  };
+
+  const modifyQuantity = (quantity) => {
+    setTotalProducts(totalProducts + quantity);
   };
 
   const removeProductFromCart = (product) => {
@@ -26,6 +31,7 @@ const CartProvider = ({ children }) => {
 
   const clear = () => {
     setCartProducts([]);
+    setTotalProducts(0);
   };
 
   const data = {
@@ -34,6 +40,8 @@ const CartProvider = ({ children }) => {
     clear,
     removeProductFromCart,
     isInCart,
+    modifyQuantity,
+    totalProducts
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
