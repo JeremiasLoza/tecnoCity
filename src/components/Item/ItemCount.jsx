@@ -9,7 +9,8 @@ import { CartContext } from "../../context/CartContext";
 const ItemCount = ({ quantitySelected, stock, productData }) => {
   const [count, setCount] = useState(1);
 
-  const {addProductToCart, modifyQuantity} = useContext(CartContext);
+  const { addProductToCart, setTotalProducts, modifyQuantity } =
+    useContext(CartContext);
 
   const editItem = (num) => {
     setCount(count + num);
@@ -19,10 +20,6 @@ const ItemCount = ({ quantitySelected, stock, productData }) => {
     quantitySelected(count);
     addProductToCart(productData);
     modifyQuantity(count);
-  };
-
-  const addToCart = (e) => {
-    e.stopPropagation();
   };
 
   return (
@@ -56,7 +53,6 @@ const ItemCount = ({ quantitySelected, stock, productData }) => {
       <Button
         onClick={() => {
           onAdd();
-          addToCart();
         }}
         disabled={stock ? false : true}
         variant="outline-primary"

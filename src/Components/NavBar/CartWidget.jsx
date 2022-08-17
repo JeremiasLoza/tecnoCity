@@ -6,7 +6,6 @@ import Badge from "react-bootstrap/Badge";
 import "./CartWidget.scss";
 import { CartContext } from "../../context/CartContext";
 import Modal from "react-bootstrap/Modal";
-import Image from "react-bootstrap/Image";
 import CartComponent from "../Cart/Cart";
 
 const CartWidget = () => {
@@ -41,7 +40,7 @@ const CartWidget = () => {
               </>
             );
           }) : <h4>No tienes productos en el carrito!</h4>} 
-          {cartProducts.length !== 0 && <Button onClick={() => clear()}>Vaciar carrito</Button> }
+          {cartProducts.length !== 0 && <Button className="mt-2" onClick={() => clear()}>Vaciar carrito</Button> }
         </Modal.Body>
       </Modal>
     </>

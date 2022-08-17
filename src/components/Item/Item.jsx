@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/esm/Card";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
@@ -7,6 +6,10 @@ import "./Item.scss";
 
 function Item({ data }) {
   const { id, photo, title, price, stock } = data;
+
+  const stopProp = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <Card style={{ width: "17rem" }} className="text-center m-3 shadow">
@@ -25,15 +28,9 @@ function Item({ data }) {
           $ {price}
         </Card.Text>
 
-        <ItemCount stock={stock} />
-
-        {/* <Button
-          disabled={stock ? false : true}
-          variant="outline-primary"
-          className="mb-2"
-        >
-          Agregar al carrito
-        </Button> */}
+        <div onClick={stopProp}>
+          <ItemCount stock={stock} />
+        </div>
 
         <Card.Text
           style={{ fontSize: "0.7rem" }}
