@@ -49,7 +49,7 @@ function NavBar() {
               >
                 {links.map((link, i) => {
                   return (
-                    <NavDropdown.Item>
+                    <NavDropdown.Item key={i}>
                       <Link to={link.url}>{link.name}</Link>
                     </NavDropdown.Item>
                   );

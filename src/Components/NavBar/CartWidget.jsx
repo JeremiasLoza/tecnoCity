@@ -9,7 +9,7 @@ import Modal from "react-bootstrap/Modal";
 import CartComponent from "../Cart/Cart";
 
 const CartWidget = () => {
-  const { cartProducts, totalProducts, clear, removeProductFromCart } = useContext(CartContext);
+  const { cartProducts, totalProducts, clear } = useContext(CartContext);
   const [lgShow, setLgShow] = useState(false);
 
   return (

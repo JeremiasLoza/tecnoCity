@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/esm/Container";
-import products from "../../utils/products.mock";
 import ItemList from "../ItemList/ItemList";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../firebaseConfig";
 
 function ItemListContainer({ title }) {
   const [listProducts, setListProducts] = useState([]);
 
-  const getProducts = new Promise((resolve, reject) => {
-      resolve(products);
-  });
+  const getProducts = async () => {
+    const productCollection = collection(db, "productos");
+    const productSnapshot = await getDocs(productCollection);
+    const productList = productSnapshot.docs.map((doc) => {
+      let product = doc.data();
+      product.id = doc.id;
+      return product;
+    })
+
+    return productList;
+  };
 
   useEffect(() => {
-    getProducts
-      .then((res) => {
-        setListProducts(products);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    getProducts()
+    .then( (res) => {
+      setListProducts(res);
+    })
+  }, []);
 
   return (
     <div>
