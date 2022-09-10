@@ -20,7 +20,9 @@ const CartWidget = () => {
         variant="outline-primary"
       >
         <Cart />
-        <Badge bg="none">{cartProducts.length !== 0 ? totalProducts : ''}</Badge>
+        <Badge bg="none">
+          {cartProducts.length !== 0 ? totalProducts : ""}
+        </Badge>
       </Button>
 
       <Modal
@@ -33,14 +35,18 @@ const CartWidget = () => {
           <Modal.Title id="example-modal-sizes-title-lg">Checkout</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {cartProducts.length !== 0 ? cartProducts.map((item, i) => {
-            return (
-              <>
-                <CartComponent key={i} product={item} />
-              </>
-            );
-          }) : <h4>No tienes productos en el carrito!</h4>} 
-          {cartProducts.length !== 0 && <Button className="mt-2" onClick={() => clear()}>Vaciar carrito</Button> }
+          {cartProducts.length !== 0 ? (
+            cartProducts.map((item, i) => {
+              return <CartComponent key={i} product={item} />;
+            })
+          ) : (
+            <h4>No tienes productos en el carrito!</h4>
+          )}
+          {cartProducts.length !== 0 && (
+            <Button className="mt-2" onClick={() => clear()}>
+              Vaciar carrito
+            </Button>
+          )}
         </Modal.Body>
       </Modal>
     </>

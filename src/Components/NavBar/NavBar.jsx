@@ -15,7 +15,7 @@ function NavBar() {
   const links = [
     { name: "Procesadores", url: "/category/procesadores" },
     { name: "Placas de Video", url: "/category/placas_de_video" },
-    { name: "Motherboards", url: "/category/motherboards" }
+    { name: "Motherboards", url: "/category/motherboards" },
   ];
 
   return (
@@ -55,7 +55,9 @@ function NavBar() {
                   );
                 })}
                 <NavDropdown.Divider />
-                <NavDropdown.Item><Link to='/category'>Todos</Link></NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/category">Todos</Link>
+                </NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link>

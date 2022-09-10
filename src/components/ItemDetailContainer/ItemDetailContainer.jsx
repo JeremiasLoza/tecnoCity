@@ -9,21 +9,20 @@ const ItemDetailContainer = () => {
 
   const { id } = useParams();
 
-  useEffect( () => {
-    getProduct()
-    .then( (res) => {
+  useEffect(() => {
+    getProduct().then((res) => {
       setProductData(res);
-    })
+    });
   }, [id]);
 
   const getProduct = async () => {
-    const docRef = doc(db, 'productos', id);
+    const docRef = doc(db, "productos", id);
     const docSnapshot = await getDoc(docRef);
     let product = docSnapshot.data();
     product.id = docSnapshot.id;
 
     return product;
-  }
+  };
 
   return (
     <>

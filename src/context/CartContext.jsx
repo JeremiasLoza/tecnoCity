@@ -19,10 +19,13 @@ const CartProvider = ({ children }) => {
 
   const removeProductFromCart = (product) => {
     for (var i = 0; i < cartProducts.length; i++) {
-      if (cartProducts[i] === product) {
-        cartProducts.slice(i, i);
+      if (cartProducts[i] == product) {
+        cartProducts.splice(i, 1);
       }
     }
+
+    setCartProducts(cartProducts);
+    setTotalProducts(cartProducts.length);
   };
 
   const isInCart = (product) => {
@@ -41,7 +44,7 @@ const CartProvider = ({ children }) => {
     removeProductFromCart,
     isInCart,
     modifyQuantity,
-    totalProducts
+    totalProducts,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

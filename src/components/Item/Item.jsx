@@ -3,9 +3,12 @@ import Card from "react-bootstrap/esm/Card";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import "./Item.scss";
+import { useState } from "react";
 
 function Item({ data }) {
   const { id, photo, title, price, stock } = data;
+
+  const [quantitySelected, setQuantitySelected] = useState(0);
 
   const stopProp = (e) => {
     e.preventDefault();
@@ -29,7 +32,11 @@ function Item({ data }) {
         </Card.Text>
 
         <div onClick={stopProp}>
-          <ItemCount stock={stock} />
+          <ItemCount
+            quantitySelected={setQuantitySelected}
+            stock={stock}
+            productData={data}
+          />
         </div>
 
         <Card.Text

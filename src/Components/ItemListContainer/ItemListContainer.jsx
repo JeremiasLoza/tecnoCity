@@ -15,16 +15,15 @@ function ItemListContainer({ title }) {
       let product = doc.data();
       product.id = doc.id;
       return product;
-    })
+    });
 
     return productList;
   };
 
   useEffect(() => {
-    getProducts()
-    .then( (res) => {
+    getProducts().then((res) => {
       setListProducts(res);
-    })
+    });
   }, []);
 
   return (

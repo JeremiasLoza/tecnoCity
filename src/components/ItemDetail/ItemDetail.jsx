@@ -17,7 +17,7 @@ const ItemDetail = ({ data }) => {
         <Breadcrumb.Item>
           <Link to="/">Home</Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item active>Producto</Breadcrumb.Item>
+        <Breadcrumb.Item active>{title}</Breadcrumb.Item>
       </Breadcrumb>
       <Row className="pt-2 pb-5">
         <Col>
@@ -54,7 +54,11 @@ const ItemDetail = ({ data }) => {
               </Button>
             </Link>
           ) : (
-            <ItemCount quantitySelected={setQuantitySelected} stock={stock} productData={data} />
+            <ItemCount
+              quantitySelected={setQuantitySelected}
+              stock={stock}
+              productData={data}
+            />
           )}
 
           <h6
