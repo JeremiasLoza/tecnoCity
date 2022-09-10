@@ -4,9 +4,12 @@ import Container from "react-bootstrap/esm/Container";
 import ItemList from "../ItemList/ItemList";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../../firebaseConfig";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer({ title }) {
   const [listProducts, setListProducts] = useState([]);
+
+  const { categoryId } = useParams();
 
   const getProducts = async () => {
     const productCollection = collection(db, "productos");
@@ -32,7 +35,15 @@ function ItemListContainer({ title }) {
 
       <Container>
         <Row className="justify-content-around">
-          <ItemList dataProduct={listProducts} />
+          {categoryId ? (
+            <ItemList
+              dataProduct={listProducts.filter(
+                (product) => product.category == categoryId
+              )}
+            />
+          ) : (
+            <ItemList dataProduct={listProducts} />
+          )}
         </Row>
       </Container>
     </div>

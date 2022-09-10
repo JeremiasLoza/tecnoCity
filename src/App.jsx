@@ -8,6 +8,7 @@ import Checkout from "./pages/Checkout";
 import CartProvider from "./context/CartContext";
 
 function App() {
+
   return (
     <>
       <CartProvider>
@@ -19,6 +20,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route
               path="/category/:categoryId"
+              element={<ItemListContainer />}
+            />
+            <Route
+              path="/category/"
               element={<ItemListContainer />}
             />
             <Route path="/item/:id" element={<ItemDetailContainer />} />

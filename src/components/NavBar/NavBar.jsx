@@ -10,8 +10,12 @@ import { Search } from "react-bootstrap-icons";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 function NavBar() {
+  const { cartProducts } = useContext(CartContext);
+
   const links = [
     { name: "Procesadores", url: "/category/procesadores" },
     { name: "Placas de Video", url: "/category/placas_de_video" },
@@ -81,7 +85,10 @@ function NavBar() {
           </Offcanvas.Body>
         </Navbar.Offcanvas>
 
-        <CartWidget />
+        {
+          cartProducts.length !== 0 ? <CartWidget /> : ""
+        }
+        
       </Container>
     </Navbar>
   );
