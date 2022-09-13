@@ -25,9 +25,21 @@
 
 - **Item List Container:** Contiene la lista de Items.
 
+- **Cart:** Contiene los items que estan en el carrito.
+
+- **Footer:** Pie de pagina.
+
 ## Pages
 
 - **Home.**
+- **Contact.**
+- **Cart.**
+- **Category.**
+
+## Contexto
+
+- **Cart Context:** Se incluyen funcionalidades del carrito.
+
 
 ## Utils
 
