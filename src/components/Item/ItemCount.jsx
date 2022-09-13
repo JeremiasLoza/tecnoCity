@@ -18,6 +18,7 @@ const ItemCount = ({ quantitySelected, stock, productData }) => {
 
   const onAdd = () => {
     quantitySelected(count);
+    productData.quantity = count;
     addProductToCart(productData);
     modifyQuantity(count);
   };

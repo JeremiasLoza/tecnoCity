@@ -11,8 +11,13 @@ import { CartContext } from "../../context/CartContext.jsx";
 
 const Cart = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
-  const { cartProducts, totalPrice, removeProductFromCart } =
-    useContext(CartContext);
+  const {
+    cartProducts,
+    totalPrice,
+    removeProductFromCart,
+    totalProducts,
+    getProductQuantity,
+  } = useContext(CartContext);
   const [success, setSuccess] = useState();
 
   const [order, setOrder] = useState({
@@ -57,7 +62,13 @@ const Cart = ({ product }) => {
         <Col>
           <h4>{product.title}</h4>
           <Row>
-            <h5>$ {product.price}</h5>
+            <h5>
+              {getProductQuantity(product)} x $ {product.price}
+            </h5>
+          </Row>
+
+          <Row>
+            <h5>Total: $ {getProductQuantity(product) * product.price}</h5>
           </Row>
         </Col>
         <Col md="auto" className="align-self-center">
@@ -69,6 +80,7 @@ const Cart = ({ product }) => {
           </Button>
         </Col>
       </Row>
+      <hr className="mt-3" />
     </Container>
   );
 };

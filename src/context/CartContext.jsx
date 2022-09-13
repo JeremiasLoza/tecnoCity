@@ -13,6 +13,16 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const getProductQuantity = (product) => {
+    if (isInCart(product)) {
+      const prodQuantity = cartProducts.find(
+        (prod) => prod.title == product.title
+      );
+
+      return prodQuantity.quantity;
+    }
+  };
+
   const modifyQuantity = (quantity) => {
     setTotalProducts(totalProducts + quantity);
   };
@@ -45,6 +55,7 @@ const CartProvider = ({ children }) => {
     isInCart,
     modifyQuantity,
     totalProducts,
+    getProductQuantity,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

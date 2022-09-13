@@ -7,6 +7,7 @@ import "./CartWidget.scss";
 import { CartContext } from "../../context/CartContext";
 import Modal from "react-bootstrap/Modal";
 import CartComponent from "../Cart/Cart";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
   const { cartProducts, totalProducts, clear } = useContext(CartContext);
@@ -42,10 +43,18 @@ const CartWidget = () => {
           ) : (
             <h4>No tienes productos en el carrito!</h4>
           )}
+
           {cartProducts.length !== 0 && (
-            <Button className="mt-2" onClick={() => clear()}>
-              Vaciar carrito
-            </Button>
+            <div className="d-flex justify-content-between">
+              <Button className="mt-2 btn-danger" onClick={() => clear()}>
+                Vaciar carrito
+              </Button>
+              <Link to="/cart">
+                <Button className="mt-2" onClick={() => setLgShow(false)}>
+                  Terminar compra
+                </Button>
+              </Link>
+            </div>
           )}
         </Modal.Body>
       </Modal>
